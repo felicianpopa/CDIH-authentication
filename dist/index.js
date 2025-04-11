@@ -1,37 +1,37 @@
 /*!
-  web-authentication v1.0.10
+  web-authentication v1.0.11
   undefined
   Released under the undefined License.
 */
-'use strict';
-
-
+"use strict";
 
 function ___$insertStylesToHeader(css) {
   if (!css) {
-    return
+    return;
   }
-  if (typeof window === 'undefined') {
-    return
+  if (typeof window === "undefined") {
+    return;
   }
 
-  const style = document.createElement('style');
+  const style = document.createElement("style");
 
-  style.setAttribute('type', 'text/css');
+  style.setAttribute("type", "text/css");
   style.innerHTML = css;
   document.head.appendChild(style);
-  return css
+  return css;
 }
 
-var React = require('react');
-var nookies = require('nookies');
-var axios = require('axios');
-var FEUtils = require('FE-utils');
+var React = require("react");
+var nookies = require("nookies");
+var axios = require("axios");
+var FEUtils = require("FE-utils");
 
-function _interopDefaultCompat (e) { return e && typeof e === 'object' && 'default' in e ? e : { default: e }; }
+function _interopDefaultCompat(e) {
+  return e && typeof e === "object" && "default" in e ? e : { default: e };
+}
 
-var React__default = /*#__PURE__*/_interopDefaultCompat(React);
-var axios__default = /*#__PURE__*/_interopDefaultCompat(axios);
+var React__default = /*#__PURE__*/ _interopDefaultCompat(React);
+var axios__default = /*#__PURE__*/ _interopDefaultCompat(axios);
 
 function _arrayLikeToArray(r, a) {
   (null == a || a > r.length) && (a = r.length);
@@ -67,10 +67,12 @@ function _asyncToGenerator(n) {
   };
 }
 function _classCallCheck(a, n) {
-  if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function");
+  if (!(a instanceof n))
+    throw new TypeError("Cannot call a class as a function");
 }
 function _construct(t, e, r) {
-  if (_isNativeReflectConstruct()) return Reflect.construct.apply(null, arguments);
+  if (_isNativeReflectConstruct())
+    return Reflect.construct.apply(null, arguments);
   var o = [null];
   o.push.apply(o, e);
   var p = new (t.bind.apply(t, o))();
@@ -79,16 +81,24 @@ function _construct(t, e, r) {
 function _defineProperties(e, r) {
   for (var t = 0; t < r.length; t++) {
     var o = r[t];
-    o.enumerable = o.enumerable || false, o.configurable = true, "value" in o && (o.writable = true), Object.defineProperty(e, _toPropertyKey(o.key), o);
+    (o.enumerable = o.enumerable || false),
+      (o.configurable = true),
+      "value" in o && (o.writable = true),
+      Object.defineProperty(e, _toPropertyKey(o.key), o);
   }
 }
 function _createClass(e, r, t) {
-  return t && _defineProperties(e, t), Object.defineProperty(e, "prototype", {
-    writable: false
-  }), e;
+  return (
+    t && _defineProperties(e, t),
+    Object.defineProperty(e, "prototype", {
+      writable: false,
+    }),
+    e
+  );
 }
 function _createForOfIteratorHelper(r, e) {
-  var t = "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"];
+  var t =
+    ("undefined" != typeof Symbol && r[Symbol.iterator]) || r["@@iterator"];
   if (!t) {
     if (Array.isArray(r) || (t = _unsupportedIterableToArray(r)) || e) {
       t && (r = t);
@@ -97,20 +107,24 @@ function _createForOfIteratorHelper(r, e) {
       return {
         s: F,
         n: function () {
-          return n >= r.length ? {
-            done: true
-          } : {
-            done: false,
-            value: r[n++]
-          };
+          return n >= r.length
+            ? {
+                done: true,
+              }
+            : {
+                done: false,
+                value: r[n++],
+              };
         },
         e: function (r) {
           throw r;
         },
-        f: F
+        f: F,
       };
     }
-    throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+    throw new TypeError(
+      "Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."
+    );
   }
   var o,
     a = true,
@@ -121,10 +135,10 @@ function _createForOfIteratorHelper(r, e) {
     },
     n: function () {
       var r = t.next();
-      return a = r.done, r;
+      return (a = r.done), r;
     },
     e: function (r) {
-      u = true, o = r;
+      (u = true), (o = r);
     },
     f: function () {
       try {
@@ -132,27 +146,37 @@ function _createForOfIteratorHelper(r, e) {
       } finally {
         if (u) throw o;
       }
-    }
+    },
   };
 }
 function _defineProperty(e, r, t) {
-  return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, {
-    value: t,
-    enumerable: true,
-    configurable: true,
-    writable: true
-  }) : e[r] = t, e;
+  return (
+    (r = _toPropertyKey(r)) in e
+      ? Object.defineProperty(e, r, {
+          value: t,
+          enumerable: true,
+          configurable: true,
+          writable: true,
+        })
+      : (e[r] = t),
+    e
+  );
 }
 function _isNativeReflectConstruct() {
   try {
-    var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {}));
+    var t = !Boolean.prototype.valueOf.call(
+      Reflect.construct(Boolean, [], function () {})
+    );
   } catch (t) {}
   return (_isNativeReflectConstruct = function () {
     return !!t;
   })();
 }
 function _iterableToArrayLimit(r, l) {
-  var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"];
+  var t =
+    null == r
+      ? null
+      : ("undefined" != typeof Symbol && r[Symbol.iterator]) || r["@@iterator"];
   if (null != t) {
     var e,
       n,
@@ -162,12 +186,19 @@ function _iterableToArrayLimit(r, l) {
       f = true,
       o = false;
     try {
-      if (i = (t = t.call(r)).next, 0 === l) ; else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0);
+      if (((i = (t = t.call(r)).next), 0 === l));
+      else
+        for (
+          ;
+          !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l);
+          f = !0
+        );
     } catch (r) {
-      o = true, n = r;
+      (o = true), (n = r);
     } finally {
       try {
-        if (!f && null != t.return && (u = t.return(), Object(u) !== u)) return;
+        if (!f && null != t.return && ((u = t.return()), Object(u) !== u))
+          return;
       } finally {
         if (o) throw n;
       }
@@ -176,26 +207,34 @@ function _iterableToArrayLimit(r, l) {
   }
 }
 function _nonIterableRest() {
-  throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+  throw new TypeError(
+    "Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."
+  );
 }
 function ownKeys(e, r) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
     var o = Object.getOwnPropertySymbols(e);
-    r && (o = o.filter(function (r) {
-      return Object.getOwnPropertyDescriptor(e, r).enumerable;
-    })), t.push.apply(t, o);
+    r &&
+      (o = o.filter(function (r) {
+        return Object.getOwnPropertyDescriptor(e, r).enumerable;
+      })),
+      t.push.apply(t, o);
   }
   return t;
 }
 function _objectSpread2(e) {
   for (var r = 1; r < arguments.length; r++) {
     var t = null != arguments[r] ? arguments[r] : {};
-    r % 2 ? ownKeys(Object(t), true).forEach(function (r) {
-      _defineProperty(e, r, t[r]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) {
-      Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r));
-    });
+    r % 2
+      ? ownKeys(Object(t), true).forEach(function (r) {
+          _defineProperty(e, r, t[r]);
+        })
+      : Object.getOwnPropertyDescriptors
+      ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t))
+      : ownKeys(Object(t)).forEach(function (r) {
+          Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r));
+        });
   }
   return e;
 }
@@ -207,46 +246,54 @@ function _regeneratorRuntime() {
     e = {},
     r = Object.prototype,
     n = r.hasOwnProperty,
-    o = Object.defineProperty || function (t, e, r) {
-      t[e] = r.value;
-    },
+    o =
+      Object.defineProperty ||
+      function (t, e, r) {
+        t[e] = r.value;
+      },
     i = "function" == typeof Symbol ? Symbol : {},
     a = i.iterator || "@@iterator",
     c = i.asyncIterator || "@@asyncIterator",
     u = i.toStringTag || "@@toStringTag";
   function define(t, e, r) {
-    return Object.defineProperty(t, e, {
-      value: r,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    }), t[e];
+    return (
+      Object.defineProperty(t, e, {
+        value: r,
+        enumerable: true,
+        configurable: true,
+        writable: true,
+      }),
+      t[e]
+    );
   }
   try {
     define({}, "");
   } catch (t) {
     define = function (t, e, r) {
-      return t[e] = r;
+      return (t[e] = r);
     };
   }
   function wrap(t, e, r, n) {
     var i = e && e.prototype instanceof Generator ? e : Generator,
       a = Object.create(i.prototype),
       c = new Context(n || []);
-    return o(a, "_invoke", {
-      value: makeInvokeMethod(t, r, c)
-    }), a;
+    return (
+      o(a, "_invoke", {
+        value: makeInvokeMethod(t, r, c),
+      }),
+      a
+    );
   }
   function tryCatch(t, e, r) {
     try {
       return {
         type: "normal",
-        arg: t.call(e, r)
+        arg: t.call(e, r),
       };
     } catch (t) {
       return {
         type: "throw",
-        arg: t
+        arg: t,
       };
     }
   }
@@ -266,7 +313,10 @@ function _regeneratorRuntime() {
   var d = Object.getPrototypeOf,
     v = d && d(d(values([])));
   v && v !== r && n.call(v, a) && (p = v);
-  var g = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(p);
+  var g =
+    (GeneratorFunctionPrototype.prototype =
+    Generator.prototype =
+      Object.create(p));
   function defineIteratorMethods(t) {
     ["next", "throw", "return"].forEach(function (e) {
       define(t, e, function (t) {
@@ -280,15 +330,23 @@ function _regeneratorRuntime() {
       if ("throw" !== c.type) {
         var u = c.arg,
           h = u.value;
-        return h && "object" == typeof h && n.call(h, "__await") ? e.resolve(h.__await).then(function (t) {
-          invoke("next", t, i, a);
-        }, function (t) {
-          invoke("throw", t, i, a);
-        }) : e.resolve(h).then(function (t) {
-          u.value = t, i(u);
-        }, function (t) {
-          return invoke("throw", t, i, a);
-        });
+        return h && "object" == typeof h && n.call(h, "__await")
+          ? e.resolve(h.__await).then(
+              function (t) {
+                invoke("next", t, i, a);
+              },
+              function (t) {
+                invoke("throw", t, i, a);
+              }
+            )
+          : e.resolve(h).then(
+              function (t) {
+                (u.value = t), i(u);
+              },
+              function (t) {
+                return invoke("throw", t, i, a);
+              }
+            );
       }
       a(c.arg);
     }
@@ -300,8 +358,10 @@ function _regeneratorRuntime() {
             invoke(t, n, e, r);
           });
         }
-        return r = r ? r.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg();
-      }
+        return (r = r
+          ? r.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg)
+          : callInvokeWithMethodAndArg());
+      },
     });
   }
   function makeInvokeMethod(e, r, n) {
@@ -312,10 +372,10 @@ function _regeneratorRuntime() {
         if ("throw" === i) throw a;
         return {
           value: t,
-          done: true
+          done: true,
         };
       }
-      for (n.method = i, n.arg = a;;) {
+      for (n.method = i, n.arg = a; ; ) {
         var c = n.delegate;
         if (c) {
           var u = maybeInvokeDelegate(c, n);
@@ -324,46 +384,80 @@ function _regeneratorRuntime() {
             return u;
           }
         }
-        if ("next" === n.method) n.sent = n._sent = n.arg;else if ("throw" === n.method) {
-          if (o === h) throw o = s, n.arg;
+        if ("next" === n.method) n.sent = n._sent = n.arg;
+        else if ("throw" === n.method) {
+          if (o === h) throw ((o = s), n.arg);
           n.dispatchException(n.arg);
         } else "return" === n.method && n.abrupt("return", n.arg);
         o = f;
         var p = tryCatch(e, r, n);
         if ("normal" === p.type) {
-          if (o = n.done ? s : l, p.arg === y) continue;
+          if (((o = n.done ? s : l), p.arg === y)) continue;
           return {
             value: p.arg,
-            done: n.done
+            done: n.done,
           };
         }
-        "throw" === p.type && (o = s, n.method = "throw", n.arg = p.arg);
+        "throw" === p.type && ((o = s), (n.method = "throw"), (n.arg = p.arg));
       }
     };
   }
   function maybeInvokeDelegate(e, r) {
     var n = r.method,
       o = e.iterator[n];
-    if (o === t) return r.delegate = null, "throw" === n && e.iterator.return && (r.method = "return", r.arg = t, maybeInvokeDelegate(e, r), "throw" === r.method) || "return" !== n && (r.method = "throw", r.arg = new TypeError("The iterator does not provide a '" + n + "' method")), y;
+    if (o === t)
+      return (
+        (r.delegate = null),
+        ("throw" === n &&
+          e.iterator.return &&
+          ((r.method = "return"),
+          (r.arg = t),
+          maybeInvokeDelegate(e, r),
+          "throw" === r.method)) ||
+          ("return" !== n &&
+            ((r.method = "throw"),
+            (r.arg = new TypeError(
+              "The iterator does not provide a '" + n + "' method"
+            )))),
+        y
+      );
     var i = tryCatch(o, e.iterator, r.arg);
-    if ("throw" === i.type) return r.method = "throw", r.arg = i.arg, r.delegate = null, y;
+    if ("throw" === i.type)
+      return (r.method = "throw"), (r.arg = i.arg), (r.delegate = null), y;
     var a = i.arg;
-    return a ? a.done ? (r[e.resultName] = a.value, r.next = e.nextLoc, "return" !== r.method && (r.method = "next", r.arg = t), r.delegate = null, y) : a : (r.method = "throw", r.arg = new TypeError("iterator result is not an object"), r.delegate = null, y);
+    return a
+      ? a.done
+        ? ((r[e.resultName] = a.value),
+          (r.next = e.nextLoc),
+          "return" !== r.method && ((r.method = "next"), (r.arg = t)),
+          (r.delegate = null),
+          y)
+        : a
+      : ((r.method = "throw"),
+        (r.arg = new TypeError("iterator result is not an object")),
+        (r.delegate = null),
+        y);
   }
   function pushTryEntry(t) {
     var e = {
-      tryLoc: t[0]
+      tryLoc: t[0],
     };
-    1 in t && (e.catchLoc = t[1]), 2 in t && (e.finallyLoc = t[2], e.afterLoc = t[3]), this.tryEntries.push(e);
+    1 in t && (e.catchLoc = t[1]),
+      2 in t && ((e.finallyLoc = t[2]), (e.afterLoc = t[3])),
+      this.tryEntries.push(e);
   }
   function resetTryEntry(t) {
     var e = t.completion || {};
-    e.type = "normal", delete e.arg, t.completion = e;
+    (e.type = "normal"), delete e.arg, (t.completion = e);
   }
   function Context(t) {
-    this.tryEntries = [{
-      tryLoc: "root"
-    }], t.forEach(pushTryEntry, this), this.reset(true);
+    (this.tryEntries = [
+      {
+        tryLoc: "root",
+      },
+    ]),
+      t.forEach(pushTryEntry, this),
+      this.reset(true);
   }
   function values(e) {
     if (e || "" === e) {
@@ -373,135 +467,231 @@ function _regeneratorRuntime() {
       if (!isNaN(e.length)) {
         var o = -1,
           i = function next() {
-            for (; ++o < e.length;) if (n.call(e, o)) return next.value = e[o], next.done = false, next;
-            return next.value = t, next.done = true, next;
+            for (; ++o < e.length; )
+              if (n.call(e, o))
+                return (next.value = e[o]), (next.done = false), next;
+            return (next.value = t), (next.done = true), next;
           };
-        return i.next = i;
+        return (i.next = i);
       }
     }
     throw new TypeError(typeof e + " is not iterable");
   }
-  return GeneratorFunction.prototype = GeneratorFunctionPrototype, o(g, "constructor", {
-    value: GeneratorFunctionPrototype,
-    configurable: true
-  }), o(GeneratorFunctionPrototype, "constructor", {
-    value: GeneratorFunction,
-    configurable: true
-  }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, u, "GeneratorFunction"), e.isGeneratorFunction = function (t) {
-    var e = "function" == typeof t && t.constructor;
-    return !!e && (e === GeneratorFunction || "GeneratorFunction" === (e.displayName || e.name));
-  }, e.mark = function (t) {
-    return Object.setPrototypeOf ? Object.setPrototypeOf(t, GeneratorFunctionPrototype) : (t.__proto__ = GeneratorFunctionPrototype, define(t, u, "GeneratorFunction")), t.prototype = Object.create(g), t;
-  }, e.awrap = function (t) {
-    return {
-      __await: t
-    };
-  }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, c, function () {
-    return this;
-  }), e.AsyncIterator = AsyncIterator, e.async = function (t, r, n, o, i) {
-    void 0 === i && (i = Promise);
-    var a = new AsyncIterator(wrap(t, r, n, o), i);
-    return e.isGeneratorFunction(r) ? a : a.next().then(function (t) {
-      return t.done ? t.value : a.next();
-    });
-  }, defineIteratorMethods(g), define(g, u, "Generator"), define(g, a, function () {
-    return this;
-  }), define(g, "toString", function () {
-    return "[object Generator]";
-  }), e.keys = function (t) {
-    var e = Object(t),
-      r = [];
-    for (var n in e) r.push(n);
-    return r.reverse(), function next() {
-      for (; r.length;) {
-        var t = r.pop();
-        if (t in e) return next.value = t, next.done = false, next;
-      }
-      return next.done = true, next;
-    };
-  }, e.values = values, Context.prototype = {
-    constructor: Context,
-    reset: function (e) {
-      if (this.prev = 0, this.next = 0, this.sent = this._sent = t, this.done = false, this.delegate = null, this.method = "next", this.arg = t, this.tryEntries.forEach(resetTryEntry), !e) for (var r in this) "t" === r.charAt(0) && n.call(this, r) && !isNaN(+r.slice(1)) && (this[r] = t);
-    },
-    stop: function () {
-      this.done = true;
-      var t = this.tryEntries[0].completion;
-      if ("throw" === t.type) throw t.arg;
-      return this.rval;
-    },
-    dispatchException: function (e) {
-      if (this.done) throw e;
-      var r = this;
-      function handle(n, o) {
-        return a.type = "throw", a.arg = e, r.next = n, o && (r.method = "next", r.arg = t), !!o;
-      }
-      for (var o = this.tryEntries.length - 1; o >= 0; --o) {
-        var i = this.tryEntries[o],
-          a = i.completion;
-        if ("root" === i.tryLoc) return handle("end");
-        if (i.tryLoc <= this.prev) {
-          var c = n.call(i, "catchLoc"),
-            u = n.call(i, "finallyLoc");
-          if (c && u) {
-            if (this.prev < i.catchLoc) return handle(i.catchLoc, true);
-            if (this.prev < i.finallyLoc) return handle(i.finallyLoc);
-          } else if (c) {
-            if (this.prev < i.catchLoc) return handle(i.catchLoc, true);
-          } else {
-            if (!u) throw Error("try statement without catch or finally");
-            if (this.prev < i.finallyLoc) return handle(i.finallyLoc);
+  return (
+    (GeneratorFunction.prototype = GeneratorFunctionPrototype),
+    o(g, "constructor", {
+      value: GeneratorFunctionPrototype,
+      configurable: true,
+    }),
+    o(GeneratorFunctionPrototype, "constructor", {
+      value: GeneratorFunction,
+      configurable: true,
+    }),
+    (GeneratorFunction.displayName = define(
+      GeneratorFunctionPrototype,
+      u,
+      "GeneratorFunction"
+    )),
+    (e.isGeneratorFunction = function (t) {
+      var e = "function" == typeof t && t.constructor;
+      return (
+        !!e &&
+        (e === GeneratorFunction ||
+          "GeneratorFunction" === (e.displayName || e.name))
+      );
+    }),
+    (e.mark = function (t) {
+      return (
+        Object.setPrototypeOf
+          ? Object.setPrototypeOf(t, GeneratorFunctionPrototype)
+          : ((t.__proto__ = GeneratorFunctionPrototype),
+            define(t, u, "GeneratorFunction")),
+        (t.prototype = Object.create(g)),
+        t
+      );
+    }),
+    (e.awrap = function (t) {
+      return {
+        __await: t,
+      };
+    }),
+    defineIteratorMethods(AsyncIterator.prototype),
+    define(AsyncIterator.prototype, c, function () {
+      return this;
+    }),
+    (e.AsyncIterator = AsyncIterator),
+    (e.async = function (t, r, n, o, i) {
+      void 0 === i && (i = Promise);
+      var a = new AsyncIterator(wrap(t, r, n, o), i);
+      return e.isGeneratorFunction(r)
+        ? a
+        : a.next().then(function (t) {
+            return t.done ? t.value : a.next();
+          });
+    }),
+    defineIteratorMethods(g),
+    define(g, u, "Generator"),
+    define(g, a, function () {
+      return this;
+    }),
+    define(g, "toString", function () {
+      return "[object Generator]";
+    }),
+    (e.keys = function (t) {
+      var e = Object(t),
+        r = [];
+      for (var n in e) r.push(n);
+      return (
+        r.reverse(),
+        function next() {
+          for (; r.length; ) {
+            var t = r.pop();
+            if (t in e) return (next.value = t), (next.done = false), next;
+          }
+          return (next.done = true), next;
+        }
+      );
+    }),
+    (e.values = values),
+    (Context.prototype = {
+      constructor: Context,
+      reset: function (e) {
+        if (
+          ((this.prev = 0),
+          (this.next = 0),
+          (this.sent = this._sent = t),
+          (this.done = false),
+          (this.delegate = null),
+          (this.method = "next"),
+          (this.arg = t),
+          this.tryEntries.forEach(resetTryEntry),
+          !e)
+        )
+          for (var r in this)
+            "t" === r.charAt(0) &&
+              n.call(this, r) &&
+              !isNaN(+r.slice(1)) &&
+              (this[r] = t);
+      },
+      stop: function () {
+        this.done = true;
+        var t = this.tryEntries[0].completion;
+        if ("throw" === t.type) throw t.arg;
+        return this.rval;
+      },
+      dispatchException: function (e) {
+        if (this.done) throw e;
+        var r = this;
+        function handle(n, o) {
+          return (
+            (a.type = "throw"),
+            (a.arg = e),
+            (r.next = n),
+            o && ((r.method = "next"), (r.arg = t)),
+            !!o
+          );
+        }
+        for (var o = this.tryEntries.length - 1; o >= 0; --o) {
+          var i = this.tryEntries[o],
+            a = i.completion;
+          if ("root" === i.tryLoc) return handle("end");
+          if (i.tryLoc <= this.prev) {
+            var c = n.call(i, "catchLoc"),
+              u = n.call(i, "finallyLoc");
+            if (c && u) {
+              if (this.prev < i.catchLoc) return handle(i.catchLoc, true);
+              if (this.prev < i.finallyLoc) return handle(i.finallyLoc);
+            } else if (c) {
+              if (this.prev < i.catchLoc) return handle(i.catchLoc, true);
+            } else {
+              if (!u) throw Error("try statement without catch or finally");
+              if (this.prev < i.finallyLoc) return handle(i.finallyLoc);
+            }
           }
         }
-      }
-    },
-    abrupt: function (t, e) {
-      for (var r = this.tryEntries.length - 1; r >= 0; --r) {
-        var o = this.tryEntries[r];
-        if (o.tryLoc <= this.prev && n.call(o, "finallyLoc") && this.prev < o.finallyLoc) {
-          var i = o;
-          break;
-        }
-      }
-      i && ("break" === t || "continue" === t) && i.tryLoc <= e && e <= i.finallyLoc && (i = null);
-      var a = i ? i.completion : {};
-      return a.type = t, a.arg = e, i ? (this.method = "next", this.next = i.finallyLoc, y) : this.complete(a);
-    },
-    complete: function (t, e) {
-      if ("throw" === t.type) throw t.arg;
-      return "break" === t.type || "continue" === t.type ? this.next = t.arg : "return" === t.type ? (this.rval = this.arg = t.arg, this.method = "return", this.next = "end") : "normal" === t.type && e && (this.next = e), y;
-    },
-    finish: function (t) {
-      for (var e = this.tryEntries.length - 1; e >= 0; --e) {
-        var r = this.tryEntries[e];
-        if (r.finallyLoc === t) return this.complete(r.completion, r.afterLoc), resetTryEntry(r), y;
-      }
-    },
-    catch: function (t) {
-      for (var e = this.tryEntries.length - 1; e >= 0; --e) {
-        var r = this.tryEntries[e];
-        if (r.tryLoc === t) {
-          var n = r.completion;
-          if ("throw" === n.type) {
-            var o = n.arg;
-            resetTryEntry(r);
+      },
+      abrupt: function (t, e) {
+        for (var r = this.tryEntries.length - 1; r >= 0; --r) {
+          var o = this.tryEntries[r];
+          if (
+            o.tryLoc <= this.prev &&
+            n.call(o, "finallyLoc") &&
+            this.prev < o.finallyLoc
+          ) {
+            var i = o;
+            break;
           }
-          return o;
         }
-      }
-      throw Error("illegal catch attempt");
-    },
-    delegateYield: function (e, r, n) {
-      return this.delegate = {
-        iterator: values(e),
-        resultName: r,
-        nextLoc: n
-      }, "next" === this.method && (this.arg = t), y;
-    }
-  }, e;
+        i &&
+          ("break" === t || "continue" === t) &&
+          i.tryLoc <= e &&
+          e <= i.finallyLoc &&
+          (i = null);
+        var a = i ? i.completion : {};
+        return (
+          (a.type = t),
+          (a.arg = e),
+          i
+            ? ((this.method = "next"), (this.next = i.finallyLoc), y)
+            : this.complete(a)
+        );
+      },
+      complete: function (t, e) {
+        if ("throw" === t.type) throw t.arg;
+        return (
+          "break" === t.type || "continue" === t.type
+            ? (this.next = t.arg)
+            : "return" === t.type
+            ? ((this.rval = this.arg = t.arg),
+              (this.method = "return"),
+              (this.next = "end"))
+            : "normal" === t.type && e && (this.next = e),
+          y
+        );
+      },
+      finish: function (t) {
+        for (var e = this.tryEntries.length - 1; e >= 0; --e) {
+          var r = this.tryEntries[e];
+          if (r.finallyLoc === t)
+            return this.complete(r.completion, r.afterLoc), resetTryEntry(r), y;
+        }
+      },
+      catch: function (t) {
+        for (var e = this.tryEntries.length - 1; e >= 0; --e) {
+          var r = this.tryEntries[e];
+          if (r.tryLoc === t) {
+            var n = r.completion;
+            if ("throw" === n.type) {
+              var o = n.arg;
+              resetTryEntry(r);
+            }
+            return o;
+          }
+        }
+        throw Error("illegal catch attempt");
+      },
+      delegateYield: function (e, r, n) {
+        return (
+          (this.delegate = {
+            iterator: values(e),
+            resultName: r,
+            nextLoc: n,
+          }),
+          "next" === this.method && (this.arg = t),
+          y
+        );
+      },
+    }),
+    e
+  );
 }
 function _slicedToArray(r, e) {
-  return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest();
+  return (
+    _arrayWithHoles(r) ||
+    _iterableToArrayLimit(r, e) ||
+    _unsupportedIterableToArray(r, e) ||
+    _nonIterableRest()
+  );
 }
 function _toPrimitive(t, r) {
   if ("object" != typeof t || !t) return t;
@@ -520,83 +710,113 @@ function _toPropertyKey(t) {
 function _typeof(o) {
   "@babel/helpers - typeof";
 
-  return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) {
-    return typeof o;
-  } : function (o) {
-    return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o;
-  }, _typeof(o);
+  return (
+    (_typeof =
+      "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
+        ? function (o) {
+            return typeof o;
+          }
+        : function (o) {
+            return o &&
+              "function" == typeof Symbol &&
+              o.constructor === Symbol &&
+              o !== Symbol.prototype
+              ? "symbol"
+              : typeof o;
+          }),
+    _typeof(o)
+  );
 }
 function _unsupportedIterableToArray(r, a) {
   if (r) {
     if ("string" == typeof r) return _arrayLikeToArray(r, a);
     var t = {}.toString.call(r).slice(8, -1);
-    return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0;
+    return (
+      "Object" === t && r.constructor && (t = r.constructor.name),
+      "Map" === t || "Set" === t
+        ? Array.from(r)
+        : "Arguments" === t ||
+          /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t)
+        ? _arrayLikeToArray(r, a)
+        : void 0
+    );
   }
 }
 
-function getDefaultExportFromCjs (x) {
-	return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, 'default') ? x['default'] : x;
+function getDefaultExportFromCjs(x) {
+  return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, "default")
+    ? x["default"]
+    : x;
 }
 
 function getAugmentedNamespace(n) {
   if (n.__esModule) return n;
   var f = n.default;
-	if (typeof f == "function") {
-		var a = function a () {
-			if (this instanceof a) {
+  if (typeof f == "function") {
+    var a = function a() {
+      if (this instanceof a) {
         return Reflect.construct(f, arguments, this.constructor);
-			}
-			return f.apply(this, arguments);
-		};
-		a.prototype = f.prototype;
+      }
+      return f.apply(this, arguments);
+    };
+    a.prototype = f.prototype;
   } else a = {};
-  Object.defineProperty(a, '__esModule', {value: true});
-	Object.keys(n).forEach(function (k) {
-		var d = Object.getOwnPropertyDescriptor(n, k);
-		Object.defineProperty(a, k, d.get ? d : {
-			enumerable: true,
-			get: function () {
-				return n[k];
-			}
-		});
-	});
-	return a;
+  Object.defineProperty(a, "__esModule", { value: true });
+  Object.keys(n).forEach(function (k) {
+    var d = Object.getOwnPropertyDescriptor(n, k);
+    Object.defineProperty(
+      a,
+      k,
+      d.get
+        ? d
+        : {
+            enumerable: true,
+            get: function () {
+              return n[k];
+            },
+          }
+    );
+  });
+  return a;
 }
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+  value: true,
 });
 function _export$1(target, all) {
-  for (var name in all) Object.defineProperty(target, name, {
-    enumerable: true,
-    get: all[name]
-  });
+  for (var name in all)
+    Object.defineProperty(target, name, {
+      enumerable: true,
+      get: all[name],
+    });
 }
 _export$1(exports, {
   /**
-  * This function lets you dynamically import a component.
-  * It uses [React.lazy()](https://react.dev/reference/react/lazy) with [Suspense](https://react.dev/reference/react/Suspense) under the hood.
-  *
-  * Read more: [Next.js Docs: `next/dynamic`](https://nextjs.org/docs/app/building-your-application/optimizing/lazy-loading#nextdynamic)
-  */
-  "default": function _default() {
+   * This function lets you dynamically import a component.
+   * It uses [React.lazy()](https://react.dev/reference/react/lazy) with [Suspense](https://react.dev/reference/react/Suspense) under the hood.
+   *
+   * Read more: [Next.js Docs: `next/dynamic`](https://nextjs.org/docs/app/building-your-application/optimizing/lazy-loading#nextdynamic)
+   */
+  default: function _default() {
     return dynamic$2;
   },
   noSSR: function noSSR() {
     return _noSSR;
-  }
+  },
 });
 var _interop_require_default$1 = require("@swc/helpers/_/_interop_require_default");
 var _jsxruntime = require("react/jsx-runtime");
-/*#__PURE__*/_interop_require_default$1._(require("react"));
-var _loadablesharedruntime = /*#__PURE__*/_interop_require_default$1._(require("./loadable.shared-runtime"));
-var isServerSide = typeof window === 'undefined';
+/*#__PURE__*/ _interop_require_default$1._(require("react"));
+var _loadablesharedruntime = /*#__PURE__*/ _interop_require_default$1._(
+  require("./loadable.shared-runtime")
+);
+var isServerSide = typeof window === "undefined";
 // Normalize loader to return the module as form { default: Component } for `React.lazy`.
 // Also for backward compatible since next/dynamic allows to resolve a component directly with loader
 // Client component reference proxy need to be converted to a module.
 function convertModule(mod) {
   return {
-    "default": (mod == null ? void 0 : mod["default"]) || mod
+    default: (mod == null ? void 0 : mod["default"]) || mod,
   };
 }
 function _noSSR(LoadableInitializer, loadableOptions) {
@@ -610,11 +830,11 @@ function _noSSR(LoadableInitializer, loadableOptions) {
   var Loading = loadableOptions.loading;
   // This will only be rendered on the server side
   return function () {
-    return /*#__PURE__*/(0, _jsxruntime.jsx)(Loading, {
+    return /*#__PURE__*/ (0, _jsxruntime.jsx)(Loading, {
       error: null,
       isLoading: true,
       pastDelay: false,
-      timedOut: false
+      timedOut: false,
     });
   };
 }
@@ -627,18 +847,22 @@ function dynamic$2(dynamicOptions, options) {
         isLoading = param.isLoading,
         pastDelay = param.pastDelay;
       if (!pastDelay) return null;
-      if (process.env.NODE_ENV !== 'production') {
+      if (process.env.NODE_ENV !== "production") {
         if (isLoading) {
           return null;
         }
         if (error) {
-          return /*#__PURE__*/(0, _jsxruntime.jsxs)("p", {
-            children: [error.message, /*#__PURE__*/(0, _jsxruntime.jsx)("br", {}), error.stack]
+          return /*#__PURE__*/ (0, _jsxruntime.jsxs)("p", {
+            children: [
+              error.message,
+              /*#__PURE__*/ (0, _jsxruntime.jsx)("br", {}),
+              error.stack,
+            ],
           });
         }
       }
       return null;
-    }
+    },
   };
   // Support for direct import(), eg: dynamic(import('../hello-world'))
   // Note that this is only kept for the edge case where someone is passing in a promise as first argument
@@ -649,61 +873,86 @@ function dynamic$2(dynamicOptions, options) {
       return dynamicOptions;
     };
     // Support for having import as a function, eg: dynamic(() => import('../hello-world'))
-  } else if (typeof dynamicOptions === 'function') {
+  } else if (typeof dynamicOptions === "function") {
     loadableOptions.loader = dynamicOptions;
     // Support for having first argument being options, eg: dynamic({loader: import('../hello-world')})
-  } else if (_typeof(dynamicOptions) === 'object') {
-    loadableOptions = _objectSpread2(_objectSpread2({}, loadableOptions), dynamicOptions);
+  } else if (_typeof(dynamicOptions) === "object") {
+    loadableOptions = _objectSpread2(
+      _objectSpread2({}, loadableOptions),
+      dynamicOptions
+    );
   }
   // Support for passing options, eg: dynamic(import('../hello-world'), {loading: () => <p>Loading something</p>})
-  loadableOptions = _objectSpread2(_objectSpread2({}, loadableOptions), options);
+  loadableOptions = _objectSpread2(
+    _objectSpread2({}, loadableOptions),
+    options
+  );
   var loaderFn = loadableOptions.loader;
   var loader = function loader() {
-    return loaderFn != null ? loaderFn().then(convertModule) : Promise.resolve(convertModule(function () {
-      return null;
-    }));
+    return loaderFn != null
+      ? loaderFn().then(convertModule)
+      : Promise.resolve(
+          convertModule(function () {
+            return null;
+          })
+        );
   };
   // coming from build/babel/plugins/react-loadable-plugin.js
   if (loadableOptions.loadableGenerated) {
-    loadableOptions = _objectSpread2(_objectSpread2({}, loadableOptions), loadableOptions.loadableGenerated);
+    loadableOptions = _objectSpread2(
+      _objectSpread2({}, loadableOptions),
+      loadableOptions.loadableGenerated
+    );
     delete loadableOptions.loadableGenerated;
   }
   // support for disabling server side rendering, eg: dynamic(() => import('../hello-world'), {ssr: false}).
-  if (typeof loadableOptions.ssr === 'boolean' && !loadableOptions.ssr) {
+  if (typeof loadableOptions.ssr === "boolean" && !loadableOptions.ssr) {
     delete loadableOptions.webpack;
     delete loadableOptions.modules;
     return _noSSR(loadableFn, loadableOptions);
   }
-  return loadableFn(_objectSpread2(_objectSpread2({}, loadableOptions), {}, {
-    loader: loader
-  }));
+  return loadableFn(
+    _objectSpread2(
+      _objectSpread2({}, loadableOptions),
+      {},
+      {
+        loader: loader,
+      }
+    )
+  );
 }
-if ((typeof exports["default"] === 'function' || _typeof(exports["default"]) === 'object' && exports["default"] !== null) && typeof exports["default"].__esModule === 'undefined') {
-  Object.defineProperty(exports["default"], '__esModule', {
-    value: true
+if (
+  (typeof exports["default"] === "function" ||
+    (_typeof(exports["default"]) === "object" &&
+      exports["default"] !== null)) &&
+  typeof exports["default"].__esModule === "undefined"
+) {
+  Object.defineProperty(exports["default"], "__esModule", {
+    value: true,
   });
   Object.assign(exports["default"], exports);
   module.exports = exports["default"];
 }
 
-var dynamic$3 = /*#__PURE__*/Object.freeze({
-  __proto__: null
+var dynamic$3 = /*#__PURE__*/ Object.freeze({
+  __proto__: null,
 });
 
-var require$$0$1 = /*@__PURE__*/getAugmentedNamespace(dynamic$3);
+var require$$0$1 = /*@__PURE__*/ getAugmentedNamespace(dynamic$3);
 
 var dynamic = require$$0$1;
 
-var dynamic$1 = /*@__PURE__*/getDefaultExportFromCjs(dynamic);
+var dynamic$1 = /*@__PURE__*/ getDefaultExportFromCjs(dynamic);
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+  value: true,
 });
 function _export(target, all) {
-  for (var name in all) Object.defineProperty(target, name, {
-    enumerable: true,
-    get: all[name]
-  });
+  for (var name in all)
+    Object.defineProperty(target, name, {
+      enumerable: true,
+      get: all[name],
+    });
 }
 _export(exports, {
   Router: function Router() {
@@ -713,7 +962,7 @@ _export(exports, {
     return _createRouter;
   },
   // Export the singletonRouter and this is the public API.
-  "default": function _default() {
+  default: function _default() {
     return _default2;
   },
   makePublicRouterInstance: function makePublicRouterInstance() {
@@ -724,41 +973,76 @@ _export(exports, {
   },
   withRouter: function withRouter() {
     return _withrouter["default"];
-  }
+  },
 });
 var _interop_require_default = require("@swc/helpers/_/_interop_require_default");
-var _react = /*#__PURE__*/_interop_require_default._(require("react"));
-var _router = /*#__PURE__*/_interop_require_default._(require("../shared/lib/router/router"));
+var _react = /*#__PURE__*/ _interop_require_default._(require("react"));
+var _router = /*#__PURE__*/ _interop_require_default._(
+  require("../shared/lib/router/router")
+);
 var _routercontextsharedruntime = require("../shared/lib/router-context.shared-runtime");
-var _iserror = /*#__PURE__*/_interop_require_default._(require("../lib/is-error"));
-var _withrouter = /*#__PURE__*/_interop_require_default._(require("./with-router"));
+// var _iserror = /*#__PURE__*/_interop_require_default._(require("../lib/is-error"));
+var _withrouter = /*#__PURE__*/ _interop_require_default._(
+  require("./with-router")
+);
 var singletonRouter = {
   router: null,
   readyCallbacks: [],
   ready: function ready(callback) {
     if (this.router) return callback();
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       this.readyCallbacks.push(callback);
     }
-  }
+  },
 };
 // Create public properties and methods of the router in the singletonRouter
-var urlPropertyFields = ['pathname', 'route', 'query', 'asPath', 'components', 'isFallback', 'basePath', 'locale', 'locales', 'defaultLocale', 'isReady', 'isPreview', 'isLocaleDomain', 'domainLocales'];
-var routerEvents = ['routeChangeStart', 'beforeHistoryChange', 'routeChangeComplete', 'routeChangeError', 'hashChangeStart', 'hashChangeComplete'];
-var coreMethodFields = ['push', 'replace', 'reload', 'back', 'prefetch', 'beforePopState'];
+var urlPropertyFields = [
+  "pathname",
+  "route",
+  "query",
+  "asPath",
+  "components",
+  "isFallback",
+  "basePath",
+  "locale",
+  "locales",
+  "defaultLocale",
+  "isReady",
+  "isPreview",
+  "isLocaleDomain",
+  "domainLocales",
+];
+var routerEvents = [
+  "routeChangeStart",
+  "beforeHistoryChange",
+  "routeChangeComplete",
+  "routeChangeError",
+  "hashChangeStart",
+  "hashChangeComplete",
+];
+var coreMethodFields = [
+  "push",
+  "replace",
+  "reload",
+  "back",
+  "prefetch",
+  "beforePopState",
+];
 // Events is a static property on the router, the router doesn't have to be initialized to use it
-Object.defineProperty(singletonRouter, 'events', {
+Object.defineProperty(singletonRouter, "events", {
   get: function get() {
     return _router["default"].events;
-  }
+  },
 });
 function getRouter() {
   if (!singletonRouter.router) {
-    var message = 'No router instance found.\n' + 'You should only use "next/router" on the client side of your app.\n';
+    var message =
+      "No router instance found.\n" +
+      'You should only use "next/router" on the client side of your app.\n';
     throw Object.defineProperty(new Error(message), "__NEXT_ERROR_CODE", {
       value: "E394",
       enumerable: false,
-      configurable: true
+      configurable: true,
     });
   }
   return singletonRouter.router;
@@ -772,12 +1056,16 @@ urlPropertyFields.forEach(function (field) {
     get: function get() {
       var router = getRouter();
       return router[field];
-    }
+    },
   });
 });
 coreMethodFields.forEach(function (field) {
   singletonRouter[field] = function () {
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+    for (
+      var _len = arguments.length, args = new Array(_len), _key = 0;
+      _key < _len;
+      _key++
+    ) {
       args[_key] = arguments[_key];
     }
     var router = getRouter();
@@ -787,17 +1075,22 @@ coreMethodFields.forEach(function (field) {
 routerEvents.forEach(function (event) {
   singletonRouter.ready(function () {
     _router["default"].events.on(event, function () {
-      for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      for (
+        var _len = arguments.length, args = new Array(_len), _key = 0;
+        _key < _len;
+        _key++
+      ) {
         args[_key] = arguments[_key];
       }
-      var eventField = "on" + event.charAt(0).toUpperCase() + event.substring(1);
+      var eventField =
+        "on" + event.charAt(0).toUpperCase() + event.substring(1);
       var _singletonRouter = singletonRouter;
       if (_singletonRouter[eventField]) {
         try {
           _singletonRouter[eventField].apply(_singletonRouter, args);
         } catch (err) {
           console.error("Error when running the Router event: " + eventField);
-          console.error((0, _iserror["default"])(err) ? err.message + "\n" + err.stack : err + '');
+          // console.error((0, _iserror["default"])(err) ? err.message + "\n" + err.stack : err + '');
         }
       }
     });
@@ -805,18 +1098,30 @@ routerEvents.forEach(function (event) {
 });
 var _default2 = singletonRouter;
 function _useRouter() {
-  var router = _react["default"].useContext(_routercontextsharedruntime.RouterContext);
+  var router = _react["default"].useContext(
+    _routercontextsharedruntime.RouterContext
+  );
   if (!router) {
-    throw Object.defineProperty(new Error('NextRouter was not mounted. https://nextjs.org/docs/messages/next-router-not-mounted'), "__NEXT_ERROR_CODE", {
-      value: "E509",
-      enumerable: false,
-      configurable: true
-    });
+    throw Object.defineProperty(
+      new Error(
+        "NextRouter was not mounted. https://nextjs.org/docs/messages/next-router-not-mounted"
+      ),
+      "__NEXT_ERROR_CODE",
+      {
+        value: "E509",
+        enumerable: false,
+        configurable: true,
+      }
+    );
   }
   return router;
 }
 function _createRouter() {
-  for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+  for (
+    var _len = arguments.length, args = new Array(_len), _key = 0;
+    _key < _len;
+    _key++
+  ) {
     args[_key] = arguments[_key];
   }
   singletonRouter.router = _construct(_router["default"], args);
@@ -832,11 +1137,13 @@ function _makePublicRouterInstance(router) {
   var _iterator = _createForOfIteratorHelper(urlPropertyFields),
     _step;
   try {
-    for (_iterator.s(); !(_step = _iterator.n()).done;) {
+    for (_iterator.s(); !(_step = _iterator.n()).done; ) {
       var property = _step.value;
-      if (_typeof(scopedRouter[property]) === 'object') {
-        instance[property] = Object.assign(Array.isArray(scopedRouter[property]) ? [] : {}, scopedRouter[property]) // makes sure query is not stateful
-        ;
+      if (_typeof(scopedRouter[property]) === "object") {
+        instance[property] = Object.assign(
+          Array.isArray(scopedRouter[property]) ? [] : {},
+          scopedRouter[property]
+        ); // makes sure query is not stateful
         continue;
       }
       instance[property] = scopedRouter[property];
@@ -850,7 +1157,11 @@ function _makePublicRouterInstance(router) {
   instance.events = _router["default"].events;
   coreMethodFields.forEach(function (field) {
     instance[field] = function () {
-      for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      for (
+        var _len = arguments.length, args = new Array(_len), _key = 0;
+        _key < _len;
+        _key++
+      ) {
         args[_key] = arguments[_key];
       }
       return scopedRouter[field].apply(scopedRouter, args);
@@ -858,35 +1169,41 @@ function _makePublicRouterInstance(router) {
   });
   return instance;
 }
-if ((typeof exports["default"] === 'function' || _typeof(exports["default"]) === 'object' && exports["default"] !== null) && typeof exports["default"].__esModule === 'undefined') {
-  Object.defineProperty(exports["default"], '__esModule', {
-    value: true
+if (
+  (typeof exports["default"] === "function" ||
+    (_typeof(exports["default"]) === "object" &&
+      exports["default"] !== null)) &&
+  typeof exports["default"].__esModule === "undefined"
+) {
+  Object.defineProperty(exports["default"], "__esModule", {
+    value: true,
   });
   Object.assign(exports["default"], exports);
   module.exports = exports["default"];
 }
 
-var router$1 = /*#__PURE__*/Object.freeze({
-  __proto__: null
+var router$1 = /*#__PURE__*/ Object.freeze({
+  __proto__: null,
 });
 
-var require$$0 = /*@__PURE__*/getAugmentedNamespace(router$1);
+var require$$0 = /*@__PURE__*/ getAugmentedNamespace(router$1);
 
 var router = require$$0;
 
 var createAxiosInstance = function createAxiosInstance(apiUrl) {
   return axios__default.default.create({
-    baseURL: apiUrl
+    baseURL: apiUrl,
   });
 };
 var createAxiosPrivateInstance = function createAxiosPrivateInstance(apiUrl) {
-  var ctx = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+  var ctx =
+    arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
   var instance = axios__default.default.create({
     baseURL: apiUrl,
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
     },
-    withCredentials: true
+    withCredentials: true,
   });
 
   // When called server-side with context
@@ -896,7 +1213,9 @@ var createAxiosPrivateInstance = function createAxiosPrivateInstance(apiUrl) {
       try {
         var userData = JSON.parse(cookies.bitUser);
         if (userData.token) {
-          instance.defaults.headers.Authorization = "Bearer ".concat(userData.token);
+          instance.defaults.headers.Authorization = "Bearer ".concat(
+            userData.token
+          );
         }
       } catch (error) {
         console.error("Error parsing cookie:", error);
@@ -907,7 +1226,8 @@ var createAxiosPrivateInstance = function createAxiosPrivateInstance(apiUrl) {
 };
 
 var GetAuth = function GetAuth() {
-  var ctx = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+  var ctx =
+    arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
   var cookies = nookies.parseCookies(ctx);
   var userCookies = null;
   if (cookies.bitUser) {
@@ -921,76 +1241,102 @@ var GetAuth = function GetAuth() {
 };
 
 var useRefreshToken = function useRefreshToken(apiUrl, refreshUrl) {
-  var refresh = /*#__PURE__*/function () {
-    var _ref = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-      var ctx,
-        cookies,
-        refresh_token,
-        userData,
-        axiosInstance,
-        response,
-        _userData,
-        _args = arguments;
-      return _regeneratorRuntime().wrap(function _callee$(_context) {
-        while (1) switch (_context.prev = _context.next) {
-          case 0:
-            ctx = _args.length > 0 && _args[0] !== undefined ? _args[0] : null;
-            cookies = nookies.parseCookies(ctx);
-            refresh_token = "";
-            if (cookies.bitUser) {
-              try {
-                userData = JSON.parse(cookies.bitUser);
-                refresh_token = userData.refresh_token || "";
-              } catch (error) {
-                console.error("Error parsing user cookie:", error);
+  var refresh = /*#__PURE__*/ (function () {
+    var _ref = _asyncToGenerator(
+      /*#__PURE__*/ _regeneratorRuntime().mark(function _callee() {
+        var ctx,
+          cookies,
+          refresh_token,
+          userData,
+          axiosInstance,
+          response,
+          _userData,
+          _args = arguments;
+        return _regeneratorRuntime().wrap(
+          function _callee$(_context) {
+            while (1)
+              switch ((_context.prev = _context.next)) {
+                case 0:
+                  ctx =
+                    _args.length > 0 && _args[0] !== undefined
+                      ? _args[0]
+                      : null;
+                  cookies = nookies.parseCookies(ctx);
+                  refresh_token = "";
+                  if (cookies.bitUser) {
+                    try {
+                      userData = JSON.parse(cookies.bitUser);
+                      refresh_token = userData.refresh_token || "";
+                    } catch (error) {
+                      console.error("Error parsing user cookie:", error);
+                    }
+                  }
+                  if (refresh_token) {
+                    _context.next = 6;
+                    break;
+                  }
+                  throw new Error("No refresh token available");
+                case 6:
+                  axiosInstance = createAxiosInstance(apiUrl);
+                  _context.prev = 7;
+                  _context.next = 10;
+                  return axiosInstance.post(
+                    refreshUrl,
+                    {
+                      refresh_token: refresh_token,
+                    },
+                    {
+                      withCredentials: true,
+                    }
+                  );
+                case 10:
+                  response = _context.sent;
+                  // Update cookies - works on client-side
+                  if (typeof window !== "undefined" && cookies.bitUser) {
+                    try {
+                      _userData = JSON.parse(cookies.bitUser);
+                      nookies.setCookie(
+                        null,
+                        "bitUser",
+                        JSON.stringify(
+                          _objectSpread2(
+                            _objectSpread2({}, _userData),
+                            {},
+                            {
+                              token: response.data.token,
+                            }
+                          )
+                        ),
+                        {
+                          maxAge: 86400,
+                          path: "/",
+                        }
+                      );
+                    } catch (error) {
+                      console.error("Error updating token in cookie:", error);
+                    }
+                  }
+                  return _context.abrupt("return", response.data);
+                case 15:
+                  _context.prev = 15;
+                  _context.t0 = _context["catch"](7);
+                  console.error("Error refreshing token:", _context.t0);
+                  throw _context.t0;
+                case 19:
+                case "end":
+                  return _context.stop();
               }
-            }
-            if (refresh_token) {
-              _context.next = 6;
-              break;
-            }
-            throw new Error("No refresh token available");
-          case 6:
-            axiosInstance = createAxiosInstance(apiUrl);
-            _context.prev = 7;
-            _context.next = 10;
-            return axiosInstance.post(refreshUrl, {
-              refresh_token: refresh_token
-            }, {
-              withCredentials: true
-            });
-          case 10:
-            response = _context.sent;
-            // Update cookies - works on client-side
-            if (typeof window !== "undefined" && cookies.bitUser) {
-              try {
-                _userData = JSON.parse(cookies.bitUser);
-                nookies.setCookie(null, "bitUser", JSON.stringify(_objectSpread2(_objectSpread2({}, _userData), {}, {
-                  token: response.data.token
-                })), {
-                  maxAge: 86400,
-                  path: "/"
-                });
-              } catch (error) {
-                console.error("Error updating token in cookie:", error);
-              }
-            }
-            return _context.abrupt("return", response.data);
-          case 15:
-            _context.prev = 15;
-            _context.t0 = _context["catch"](7);
-            console.error("Error refreshing token:", _context.t0);
-            throw _context.t0;
-          case 19:
-          case "end":
-            return _context.stop();
-        }
-      }, _callee, null, [[7, 15]]);
-    }));
+          },
+          _callee,
+          null,
+          [[7, 15]]
+        );
+      })
+    );
     return function refresh() {
       return _ref.apply(this, arguments);
     };
-  }();
+  })();
   return refresh;
 };
 
@@ -998,242 +1344,346 @@ var useAxiosPrivate = function useAxiosPrivate(apiUrl, refreshUrl) {
   var router$1 = router.useRouter();
   var refresh = useRefreshToken(apiUrl, refreshUrl);
   var axiosPrivate = createAxiosPrivateInstance(apiUrl);
-  React.useEffect(function () {
-    var requestIntercept = axiosPrivate.interceptors.request.use(function (config) {
-      // If no Authorization header is set, try to add it from cookies
-      if (!config.headers["Authorization"]) {
-        var cookies = nookies.parseCookies();
-        if (cookies.bitUser) {
-          try {
-            var userData = JSON.parse(cookies.bitUser);
-            if (userData.token) {
-              config.headers["Authorization"] = "Bearer ".concat(userData.token);
-            }
-          } catch (error) {
-            console.error("Error reading token from cookie:", error);
-          }
-        }
-      }
-      return config;
-    }, function (error) {
-      return Promise.reject(error);
-    });
-    var responseIntercept = axiosPrivate.interceptors.response.use(function (response) {
-      return response;
-    }, /*#__PURE__*/function () {
-      var _ref = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee(error) {
-        var _error$response;
-        var prevRequest, refreshData, cookies, userData;
-        return _regeneratorRuntime().wrap(function _callee$(_context) {
-          while (1) switch (_context.prev = _context.next) {
-            case 0:
-              prevRequest = error === null || error === void 0 ? void 0 : error.config;
-              if (!((error === null || error === void 0 || (_error$response = error.response) === null || _error$response === void 0 ? void 0 : _error$response.status) === 401 && !(prevRequest !== null && prevRequest !== void 0 && prevRequest.sent))) {
-                _context.next = 19;
-                break;
-              }
-              prevRequest.sent = true;
-              _context.prev = 3;
-              _context.next = 6;
-              return refresh();
-            case 6:
-              refreshData = _context.sent;
-              if (!(refreshData !== null && refreshData !== void 0 && refreshData.token)) {
-                _context.next = 12;
-                break;
-              }
-              // Update the cookies
-              cookies = nookies.parseCookies();
-              if (cookies.bitUser) {
-                try {
-                  userData = JSON.parse(cookies.bitUser);
-                  nookies.setCookie(null, "bitUser", JSON.stringify(_objectSpread2(_objectSpread2({}, userData), {}, {
-                    token: refreshData.token
-                  })), {
-                    maxAge: 86400,
-                    path: "/"
-                  });
-                } catch (error) {
-                  console.error("Error updating token in cookie:", error);
+  React.useEffect(
+    function () {
+      var requestIntercept = axiosPrivate.interceptors.request.use(
+        function (config) {
+          // If no Authorization header is set, try to add it from cookies
+          if (!config.headers["Authorization"]) {
+            var cookies = nookies.parseCookies();
+            if (cookies.bitUser) {
+              try {
+                var userData = JSON.parse(cookies.bitUser);
+                if (userData.token) {
+                  config.headers["Authorization"] = "Bearer ".concat(
+                    userData.token
+                  );
                 }
+              } catch (error) {
+                console.error("Error reading token from cookie:", error);
               }
-
-              // Update the Authorization header
-              prevRequest.headers["Authorization"] = "Bearer ".concat(refreshData.token);
-              return _context.abrupt("return", axiosPrivate(prevRequest));
-            case 12:
-              _context.next = 19;
-              break;
-            case 14:
-              _context.prev = 14;
-              _context.t0 = _context["catch"](3);
-              console.error("Token refresh error:", _context.t0);
-              // Redirect to login if token refresh fails
-              router$1.push("/login");
-              return _context.abrupt("return", Promise.reject(_context.t0));
-            case 19:
-              return _context.abrupt("return", Promise.reject(error));
-            case 20:
-            case "end":
-              return _context.stop();
+            }
           }
-        }, _callee, null, [[3, 14]]);
-      }));
-      return function (_x) {
-        return _ref.apply(this, arguments);
+          return config;
+        },
+        function (error) {
+          return Promise.reject(error);
+        }
+      );
+      var responseIntercept = axiosPrivate.interceptors.response.use(
+        function (response) {
+          return response;
+        },
+        /*#__PURE__*/ (function () {
+          var _ref = _asyncToGenerator(
+            /*#__PURE__*/ _regeneratorRuntime().mark(function _callee(error) {
+              var _error$response;
+              var prevRequest, refreshData, cookies, userData;
+              return _regeneratorRuntime().wrap(
+                function _callee$(_context) {
+                  while (1)
+                    switch ((_context.prev = _context.next)) {
+                      case 0:
+                        prevRequest =
+                          error === null || error === void 0
+                            ? void 0
+                            : error.config;
+                        if (
+                          !(
+                            (error === null ||
+                            error === void 0 ||
+                            (_error$response = error.response) === null ||
+                            _error$response === void 0
+                              ? void 0
+                              : _error$response.status) === 401 &&
+                            !(
+                              prevRequest !== null &&
+                              prevRequest !== void 0 &&
+                              prevRequest.sent
+                            )
+                          )
+                        ) {
+                          _context.next = 19;
+                          break;
+                        }
+                        prevRequest.sent = true;
+                        _context.prev = 3;
+                        _context.next = 6;
+                        return refresh();
+                      case 6:
+                        refreshData = _context.sent;
+                        if (
+                          !(
+                            refreshData !== null &&
+                            refreshData !== void 0 &&
+                            refreshData.token
+                          )
+                        ) {
+                          _context.next = 12;
+                          break;
+                        }
+                        // Update the cookies
+                        cookies = nookies.parseCookies();
+                        if (cookies.bitUser) {
+                          try {
+                            userData = JSON.parse(cookies.bitUser);
+                            nookies.setCookie(
+                              null,
+                              "bitUser",
+                              JSON.stringify(
+                                _objectSpread2(
+                                  _objectSpread2({}, userData),
+                                  {},
+                                  {
+                                    token: refreshData.token,
+                                  }
+                                )
+                              ),
+                              {
+                                maxAge: 86400,
+                                path: "/",
+                              }
+                            );
+                          } catch (error) {
+                            console.error(
+                              "Error updating token in cookie:",
+                              error
+                            );
+                          }
+                        }
+
+                        // Update the Authorization header
+                        prevRequest.headers["Authorization"] = "Bearer ".concat(
+                          refreshData.token
+                        );
+                        return _context.abrupt(
+                          "return",
+                          axiosPrivate(prevRequest)
+                        );
+                      case 12:
+                        _context.next = 19;
+                        break;
+                      case 14:
+                        _context.prev = 14;
+                        _context.t0 = _context["catch"](3);
+                        console.error("Token refresh error:", _context.t0);
+                        // Redirect to login if token refresh fails
+                        router$1.push("/login");
+                        return _context.abrupt(
+                          "return",
+                          Promise.reject(_context.t0)
+                        );
+                      case 19:
+                        return _context.abrupt("return", Promise.reject(error));
+                      case 20:
+                      case "end":
+                        return _context.stop();
+                    }
+                },
+                _callee,
+                null,
+                [[3, 14]]
+              );
+            })
+          );
+          return function (_x) {
+            return _ref.apply(this, arguments);
+          };
+        })()
+      );
+      return function () {
+        axiosPrivate.interceptors.request.eject(requestIntercept);
+        axiosPrivate.interceptors.response.eject(responseIntercept);
       };
-    }());
-    return function () {
-      axiosPrivate.interceptors.request.eject(requestIntercept);
-      axiosPrivate.interceptors.response.eject(responseIntercept);
-    };
-  }, [apiUrl, refresh, router$1]);
+    },
+    [apiUrl, refresh, router$1]
+  );
   return axiosPrivate;
 };
 
-var UserDataMapper = /*#__PURE__*/function () {
+var UserDataMapper = /*#__PURE__*/ (function () {
   function UserDataMapper(response) {
     _classCallCheck(this, UserDataMapper);
     this.user_id = response.id;
     this.user_roles = response.roles;
   }
-  return _createClass(UserDataMapper, null, [{
-    key: "map",
-    value: function map(data) {
-      var response = new UserDataMapper(data);
-      return response;
-    }
-  }]);
-}();
+  return _createClass(UserDataMapper, null, [
+    {
+      key: "map",
+      value: function map(data) {
+        var response = new UserDataMapper(data);
+        return response;
+      },
+    },
+  ]);
+})();
 
 var useGetUserData = function useGetUserData(apiUrl, getUserDataUrl) {
   var axiosPrivate = useAxiosPrivate(apiUrl, "api/token/refresh");
 
   // For client-side use with auth header
-  var fetchUserDataWithAuth = /*#__PURE__*/function () {
-    var _ref = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee(token) {
-      var axiosInstance, response;
-      return _regeneratorRuntime().wrap(function _callee$(_context) {
-        while (1) switch (_context.prev = _context.next) {
-          case 0:
-            _context.prev = 0;
-            axiosInstance = createAxiosInstance(apiUrl);
-            _context.next = 4;
-            return axiosInstance.get(getUserDataUrl, {
-              headers: {
-                Authorization: "Bearer ".concat(token)
+  var fetchUserDataWithAuth = /*#__PURE__*/ (function () {
+    var _ref = _asyncToGenerator(
+      /*#__PURE__*/ _regeneratorRuntime().mark(function _callee(token) {
+        var axiosInstance, response;
+        return _regeneratorRuntime().wrap(
+          function _callee$(_context) {
+            while (1)
+              switch ((_context.prev = _context.next)) {
+                case 0:
+                  _context.prev = 0;
+                  axiosInstance = createAxiosInstance(apiUrl);
+                  _context.next = 4;
+                  return axiosInstance.get(getUserDataUrl, {
+                    headers: {
+                      Authorization: "Bearer ".concat(token),
+                    },
+                  });
+                case 4:
+                  response = _context.sent;
+                  return _context.abrupt(
+                    "return",
+                    UserDataMapper.map(response.data)
+                  );
+                case 8:
+                  _context.prev = 8;
+                  _context.t0 = _context["catch"](0);
+                  console.error("Error fetching user data:", _context.t0);
+                  throw _context.t0;
+                case 12:
+                case "end":
+                  return _context.stop();
               }
-            });
-          case 4:
-            response = _context.sent;
-            return _context.abrupt("return", UserDataMapper.map(response.data));
-          case 8:
-            _context.prev = 8;
-            _context.t0 = _context["catch"](0);
-            console.error("Error fetching user data:", _context.t0);
-            throw _context.t0;
-          case 12:
-          case "end":
-            return _context.stop();
-        }
-      }, _callee, null, [[0, 8]]);
-    }));
+          },
+          _callee,
+          null,
+          [[0, 8]]
+        );
+      })
+    );
     return function fetchUserDataWithAuth(_x) {
       return _ref.apply(this, arguments);
     };
-  }();
+  })();
 
   // For authenticated requests using interceptor
-  var fetchUserData = /*#__PURE__*/function () {
-    var _ref2 = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
-      var response;
-      return _regeneratorRuntime().wrap(function _callee2$(_context2) {
-        while (1) switch (_context2.prev = _context2.next) {
-          case 0:
-            _context2.prev = 0;
-            _context2.next = 3;
-            return axiosPrivate.get(getUserDataUrl);
-          case 3:
-            response = _context2.sent;
-            return _context2.abrupt("return", UserDataMapper.map(response.data));
-          case 7:
-            _context2.prev = 7;
-            _context2.t0 = _context2["catch"](0);
-            console.error("Error fetching user data:", _context2.t0);
-            throw _context2.t0;
-          case 11:
-          case "end":
-            return _context2.stop();
-        }
-      }, _callee2, null, [[0, 7]]);
-    }));
+  var fetchUserData = /*#__PURE__*/ (function () {
+    var _ref2 = _asyncToGenerator(
+      /*#__PURE__*/ _regeneratorRuntime().mark(function _callee2() {
+        var response;
+        return _regeneratorRuntime().wrap(
+          function _callee2$(_context2) {
+            while (1)
+              switch ((_context2.prev = _context2.next)) {
+                case 0:
+                  _context2.prev = 0;
+                  _context2.next = 3;
+                  return axiosPrivate.get(getUserDataUrl);
+                case 3:
+                  response = _context2.sent;
+                  return _context2.abrupt(
+                    "return",
+                    UserDataMapper.map(response.data)
+                  );
+                case 7:
+                  _context2.prev = 7;
+                  _context2.t0 = _context2["catch"](0);
+                  console.error("Error fetching user data:", _context2.t0);
+                  throw _context2.t0;
+                case 11:
+                case "end":
+                  return _context2.stop();
+              }
+          },
+          _callee2,
+          null,
+          [[0, 7]]
+        );
+      })
+    );
     return function fetchUserData() {
       return _ref2.apply(this, arguments);
     };
-  }();
+  })();
   return {
     fetchUserData: fetchUserData,
-    fetchUserDataWithAuth: fetchUserDataWithAuth
+    fetchUserDataWithAuth: fetchUserDataWithAuth,
   };
 };
 
 var useLogout = function useLogout(apiUrl) {
-  var logoutUrl = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+  var logoutUrl =
+    arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
   var router$1 = router.useRouter();
   var axiosInstance = createAxiosInstance(apiUrl);
-  var logout = /*#__PURE__*/function () {
-    var _ref = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-      var redirectPath,
-        _args = arguments;
-      return _regeneratorRuntime().wrap(function _callee$(_context) {
-        while (1) switch (_context.prev = _context.next) {
-          case 0:
-            redirectPath = _args.length > 0 && _args[0] !== undefined ? _args[0] : "/login";
-            // Remove cookies
-            nookies.destroyCookie(null, "bitUser", {
-              path: "/"
-            });
-            nookies.destroyCookie(null, "bitUserData", {
-              path: "/"
-            });
+  var logout = /*#__PURE__*/ (function () {
+    var _ref = _asyncToGenerator(
+      /*#__PURE__*/ _regeneratorRuntime().mark(function _callee() {
+        var redirectPath,
+          _args = arguments;
+        return _regeneratorRuntime().wrap(
+          function _callee$(_context) {
+            while (1)
+              switch ((_context.prev = _context.next)) {
+                case 0:
+                  redirectPath =
+                    _args.length > 0 && _args[0] !== undefined
+                      ? _args[0]
+                      : "/login";
+                  // Remove cookies
+                  nookies.destroyCookie(null, "bitUser", {
+                    path: "/",
+                  });
+                  nookies.destroyCookie(null, "bitUserData", {
+                    path: "/",
+                  });
 
-            // Optional API call to invalidate token on server
-            if (!logoutUrl) {
-              _context.next = 12;
-              break;
-            }
-            _context.prev = 4;
-            _context.next = 7;
-            return axiosInstance.post(logoutUrl, {}, {
-              withCredentials: true
-            });
-          case 7:
-            _context.next = 12;
-            break;
-          case 9:
-            _context.prev = 9;
-            _context.t0 = _context["catch"](4);
-            console.error("Error during logout:", _context.t0);
-            // Continue with client-side logout even if server request fails
-          case 12:
-            // Redirect to login page
-            if (redirectPath) {
-              router$1.push(redirectPath);
-            }
-          case 13:
-          case "end":
-            return _context.stop();
-        }
-      }, _callee, null, [[4, 9]]);
-    }));
+                  // Optional API call to invalidate token on server
+                  if (!logoutUrl) {
+                    _context.next = 12;
+                    break;
+                  }
+                  _context.prev = 4;
+                  _context.next = 7;
+                  return axiosInstance.post(
+                    logoutUrl,
+                    {},
+                    {
+                      withCredentials: true,
+                    }
+                  );
+                case 7:
+                  _context.next = 12;
+                  break;
+                case 9:
+                  _context.prev = 9;
+                  _context.t0 = _context["catch"](4);
+                  console.error("Error during logout:", _context.t0);
+                // Continue with client-side logout even if server request fails
+                case 12:
+                  // Redirect to login page
+                  if (redirectPath) {
+                    router$1.push(redirectPath);
+                  }
+                case 13:
+                case "end":
+                  return _context.stop();
+              }
+          },
+          _callee,
+          null,
+          [[4, 9]]
+        );
+      })
+    );
     return function logout() {
       return _ref.apply(this, arguments);
     };
-  }();
+  })();
   return logout;
 };
 
-var UserAuthMapper = /*#__PURE__*/function () {
+var UserAuthMapper = /*#__PURE__*/ (function () {
   function UserAuthMapper(response) {
     _classCallCheck(this, UserAuthMapper);
     this.user_id = response.user_id;
@@ -1241,22 +1691,27 @@ var UserAuthMapper = /*#__PURE__*/function () {
     this.token = response.token;
     this.refresh_token = response.refresh_token;
   }
-  return _createClass(UserAuthMapper, null, [{
-    key: "map",
-    value: function map(data) {
-      var response = new UserAuthMapper(data);
-      return response;
-    }
-  }]);
-}();
+  return _createClass(UserAuthMapper, null, [
+    {
+      key: "map",
+      value: function map(data) {
+        var response = new UserAuthMapper(data);
+        return response;
+      },
+    },
+  ]);
+})();
 
-var DynamicForm = dynamic$1(function () {
-  return import('FE-utils').then(function (mod) {
-    return mod.DynamicForm;
-  });
-}, {
-  ssr: false
-});
+var DynamicForm = dynamic$1(
+  function () {
+    return import("FE-utils").then(function (mod) {
+      return mod.DynamicForm;
+    });
+  },
+  {
+    ssr: false,
+  }
+);
 var Login = function Login(_ref) {
   var children = _ref.children,
     loginSuccess = _ref.loginSuccess,
@@ -1265,7 +1720,8 @@ var Login = function Login(_ref) {
     loginUrl = _ref.loginUrl,
     getUserDataUrl = _ref.getUserDataUrl,
     _ref$redirectPath = _ref.redirectPath,
-    redirectPath = _ref$redirectPath === void 0 ? "/dashboard" : _ref$redirectPath;
+    redirectPath =
+      _ref$redirectPath === void 0 ? "/dashboard" : _ref$redirectPath;
   var router$1 = router.useRouter();
   var _useGetUserData = useGetUserData(apiUrl, getUserDataUrl),
     fetchUserDataWithAuth = _useGetUserData.fetchUserDataWithAuth;
@@ -1279,140 +1735,229 @@ var Login = function Login(_ref) {
     _useState4 = _slicedToArray(_useState3, 2),
     errMsg = _useState4[0],
     setErrMsg = _useState4[1];
-  var handleSubmit = /*#__PURE__*/function () {
-    var _ref2 = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee(formData) {
-      var email, password, response, authData, userData, returnUrl, _err$response, _err$response2;
-      return _regeneratorRuntime().wrap(function _callee$(_context) {
-        while (1) switch (_context.prev = _context.next) {
-          case 0:
-            setLoginLoading(true);
-            email = formData.email, password = formData.password;
-            _context.prev = 2;
-            _context.next = 5;
-            return axiosInstance.post(loginUrl, JSON.stringify({
-              email: email,
-              password: password
-            }), {
-              headers: {
-                "Content-Type": "application/json"
-              },
-              withCredentials: true
-            });
-          case 5:
-            response = _context.sent;
-            authData = UserAuthMapper.map(response.data); // Set cookies using nookies
-            nookies.setCookie(null, "bitUser", JSON.stringify(_objectSpread2({}, authData)), {
-              path: "/",
-              maxAge: cookiesAge,
-              secure: process.env.NODE_ENV === "production",
-              sameSite: "lax"
-            });
+  var handleSubmit = /*#__PURE__*/ (function () {
+    var _ref2 = _asyncToGenerator(
+      /*#__PURE__*/ _regeneratorRuntime().mark(function _callee(formData) {
+        var email,
+          password,
+          response,
+          authData,
+          userData,
+          returnUrl,
+          _err$response,
+          _err$response2;
+        return _regeneratorRuntime().wrap(
+          function _callee$(_context) {
+            while (1)
+              switch ((_context.prev = _context.next)) {
+                case 0:
+                  setLoginLoading(true);
+                  (email = formData.email), (password = formData.password);
+                  _context.prev = 2;
+                  _context.next = 5;
+                  return axiosInstance.post(
+                    loginUrl,
+                    JSON.stringify({
+                      email: email,
+                      password: password,
+                    }),
+                    {
+                      headers: {
+                        "Content-Type": "application/json",
+                      },
+                      withCredentials: true,
+                    }
+                  );
+                case 5:
+                  response = _context.sent;
+                  authData = UserAuthMapper.map(response.data); // Set cookies using nookies
+                  nookies.setCookie(
+                    null,
+                    "bitUser",
+                    JSON.stringify(_objectSpread2({}, authData)),
+                    {
+                      path: "/",
+                      maxAge: cookiesAge,
+                      secure: process.env.NODE_ENV === "production",
+                      sameSite: "lax",
+                    }
+                  );
 
-            // Fetch user data
-            _context.next = 10;
-            return fetchUserDataWithAuth(authData.token);
-          case 10:
-            userData = _context.sent;
-            nookies.setCookie(null, "bitUserData", JSON.stringify(_objectSpread2({}, userData)), {
-              path: "/",
-              maxAge: cookiesAge,
-              secure: process.env.NODE_ENV === "production",
-              sameSite: "lax"
-            });
+                  // Fetch user data
+                  _context.next = 10;
+                  return fetchUserDataWithAuth(authData.token);
+                case 10:
+                  userData = _context.sent;
+                  nookies.setCookie(
+                    null,
+                    "bitUserData",
+                    JSON.stringify(_objectSpread2({}, userData)),
+                    {
+                      path: "/",
+                      maxAge: cookiesAge,
+                      secure: process.env.NODE_ENV === "production",
+                      sameSite: "lax",
+                    }
+                  );
 
-            // Handle successful login
-            if (loginSuccess) {
-              loginSuccess(authData);
-            } else {
-              // Use Next.js router to redirect
-              returnUrl = router$1.query.returnUrl || redirectPath;
-              router$1.push(returnUrl);
-            }
-            _context.next = 20;
-            break;
-          case 15:
-            _context.prev = 15;
-            _context.t0 = _context["catch"](2);
-            console.error("Login error:", _context.t0);
-            if (!(_context.t0 !== null && _context.t0 !== void 0 && _context.t0.response)) {
-              setErrMsg("No server response");
-            } else if (((_err$response = _context.t0.response) === null || _err$response === void 0 ? void 0 : _err$response.status) === 400) {
-              setErrMsg("Missing Email or Password");
-            } else if (((_err$response2 = _context.t0.response) === null || _err$response2 === void 0 ? void 0 : _err$response2.status) === 401) {
-              setErrMsg("Unauthorized");
-            } else {
-              setErrMsg("Login failed");
-            }
-            if (errRef.current) {
-              errRef.current.focus();
-            }
-          case 20:
-            _context.prev = 20;
-            setLoginLoading(false);
-            return _context.finish(20);
-          case 23:
-          case "end":
-            return _context.stop();
-        }
-      }, _callee, null, [[2, 15, 20, 23]]);
-    }));
+                  // Handle successful login
+                  if (loginSuccess) {
+                    loginSuccess(authData);
+                  } else {
+                    // Use Next.js router to redirect
+                    returnUrl = router$1.query.returnUrl || redirectPath;
+                    router$1.push(returnUrl);
+                  }
+                  _context.next = 20;
+                  break;
+                case 15:
+                  _context.prev = 15;
+                  _context.t0 = _context["catch"](2);
+                  console.error("Login error:", _context.t0);
+                  if (
+                    !(
+                      _context.t0 !== null &&
+                      _context.t0 !== void 0 &&
+                      _context.t0.response
+                    )
+                  ) {
+                    setErrMsg("No server response");
+                  } else if (
+                    ((_err$response = _context.t0.response) === null ||
+                    _err$response === void 0
+                      ? void 0
+                      : _err$response.status) === 400
+                  ) {
+                    setErrMsg("Missing Email or Password");
+                  } else if (
+                    ((_err$response2 = _context.t0.response) === null ||
+                    _err$response2 === void 0
+                      ? void 0
+                      : _err$response2.status) === 401
+                  ) {
+                    setErrMsg("Unauthorized");
+                  } else {
+                    setErrMsg("Login failed");
+                  }
+                  if (errRef.current) {
+                    errRef.current.focus();
+                  }
+                case 20:
+                  _context.prev = 20;
+                  setLoginLoading(false);
+                  return _context.finish(20);
+                case 23:
+                case "end":
+                  return _context.stop();
+              }
+          },
+          _callee,
+          null,
+          [[2, 15, 20, 23]]
+        );
+      })
+    );
     return function handleSubmit(_x) {
       return _ref2.apply(this, arguments);
     };
-  }();
+  })();
   var loginFormData = {
     formTitle: "",
-    formSections: [{
-      sectionName: "",
-      formFields: [{
-        name: "email",
-        label: "Email Address",
-        type: "email",
-        placeholder: "Enter your email",
-        validations: {
-          required: "This input is required",
-          pattern: {
-            value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-            message: "Please insert a valid email"
-          }
-        },
-        initialValue: ""
-      }, {
-        name: "password",
-        label: "Password",
-        type: "password",
-        placeholder: "Enter your password",
-        validations: {
-          required: "This input is required"
-        },
-        initialValue: ""
-      }, {
-        name: "rememberMe",
-        label: "Remember me",
-        type: "checkbox",
-        placeholder: "",
-        initialValue: ""
-      }]
-    }]
+    formSections: [
+      {
+        sectionName: "",
+        formFields: [
+          {
+            name: "email",
+            label: "Email Address",
+            type: "email",
+            placeholder: "Enter your email",
+            validations: {
+              required: "This input is required",
+              pattern: {
+                value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                message: "Please insert a valid email",
+              },
+            },
+            initialValue: "",
+          },
+          {
+            name: "password",
+            label: "Password",
+            type: "password",
+            placeholder: "Enter your password",
+            validations: {
+              required: "This input is required",
+            },
+            initialValue: "",
+          },
+          {
+            name: "rememberMe",
+            label: "Remember me",
+            type: "checkbox",
+            placeholder: "",
+            initialValue: "",
+          },
+        ],
+      },
+    ],
   };
-  return /*#__PURE__*/React__default.default.createElement(React__default.default.Fragment, null, /*#__PURE__*/React__default.default.createElement("div", {
-    className: "bit bit-login"
-  }, children, errMsg && /*#__PURE__*/React__default.default.createElement("p", {
-    ref: errRef,
-    className: "error-message",
-    "aria-live": "assertive"
-  }, errMsg), /*#__PURE__*/React__default.default.createElement(DynamicForm, {
-    formData: loginFormData,
-    submitData: handleSubmit
-  }, /*#__PURE__*/React__default.default.createElement(React__default.default.Fragment, null, /*#__PURE__*/React__default.default.createElement("a", {
-    href: "#",
-    className: "forgot-password"
-  }, "Forgot Password ?"), loginLoading ? /*#__PURE__*/React__default.default.createElement("button", {
-    disabled: true,
-    className: "btn btn-primary"
-  }, "Signing you in ...") : /*#__PURE__*/React__default.default.createElement("button", {
-    className: "btn btn-primary"
-  }, "Sign In")))));
+  return /*#__PURE__*/ React__default.default.createElement(
+    React__default.default.Fragment,
+    null,
+    /*#__PURE__*/ React__default.default.createElement(
+      "div",
+      {
+        className: "bit bit-login",
+      },
+      children,
+      errMsg &&
+        /*#__PURE__*/ React__default.default.createElement(
+          "p",
+          {
+            ref: errRef,
+            className: "error-message",
+            "aria-live": "assertive",
+          },
+          errMsg
+        ),
+      /*#__PURE__*/ React__default.default.createElement(
+        DynamicForm,
+        {
+          formData: loginFormData,
+          submitData: handleSubmit,
+        },
+        /*#__PURE__*/ React__default.default.createElement(
+          React__default.default.Fragment,
+          null,
+          /*#__PURE__*/ React__default.default.createElement(
+            "a",
+            {
+              href: "#",
+              className: "forgot-password",
+            },
+            "Forgot Password ?"
+          ),
+          loginLoading
+            ? /*#__PURE__*/ React__default.default.createElement(
+                "button",
+                {
+                  disabled: true,
+                  className: "btn btn-primary",
+                },
+                "Signing you in ..."
+              )
+            : /*#__PURE__*/ React__default.default.createElement(
+                "button",
+                {
+                  className: "btn btn-primary",
+                },
+                "Sign In"
+              )
+        )
+      )
+    )
+  );
 };
 
 ___$insertStylesToHeader("");
@@ -1437,71 +1982,114 @@ var Register = function Register(_ref) {
     _useState4 = _slicedToArray(_useState3, 2),
     registering = _useState4[0],
     setRegistering = _useState4[1];
-  var submitData = /*#__PURE__*/function () {
-    var _ref2 = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee(formData) {
-      var response, _err$response;
-      return _regeneratorRuntime().wrap(function _callee$(_context) {
-        while (1) switch (_context.prev = _context.next) {
-          case 0:
-            setRegistering(true);
-            _context.prev = 1;
-            _context.next = 4;
-            return axiosInstance.post(registerUrl, JSON.stringify(_objectSpread2({}, formData)), {
-              headers: {
-                "Content-Type": "application/json"
-              },
-              withCredentials: true
-            });
-          case 4:
-            response = _context.sent;
-            if (registerSuccess) {
-              registerSuccess(response.data);
-            } else {
-              // Use Next.js router to redirect
-              router$1.push(redirectPath);
-            }
-            _context.next = 12;
-            break;
-          case 8:
-            _context.prev = 8;
-            _context.t0 = _context["catch"](1);
-            if (!(_context.t0 !== null && _context.t0 !== void 0 && _context.t0.response)) {
-              setErrMsg("No Server Response");
-            } else if (((_err$response = _context.t0.response) === null || _err$response === void 0 ? void 0 : _err$response.status) === 409) {
-              setErrMsg("Email Already Taken");
-            } else {
-              setErrMsg("Registration Failed");
-            }
-            if (errRef.current) {
-              errRef.current.focus();
-            }
-          case 12:
-            _context.prev = 12;
-            setRegistering(false);
-            return _context.finish(12);
-          case 15:
-          case "end":
-            return _context.stop();
-        }
-      }, _callee, null, [[1, 8, 12, 15]]);
-    }));
+  var submitData = /*#__PURE__*/ (function () {
+    var _ref2 = _asyncToGenerator(
+      /*#__PURE__*/ _regeneratorRuntime().mark(function _callee(formData) {
+        var response, _err$response;
+        return _regeneratorRuntime().wrap(
+          function _callee$(_context) {
+            while (1)
+              switch ((_context.prev = _context.next)) {
+                case 0:
+                  setRegistering(true);
+                  _context.prev = 1;
+                  _context.next = 4;
+                  return axiosInstance.post(
+                    registerUrl,
+                    JSON.stringify(_objectSpread2({}, formData)),
+                    {
+                      headers: {
+                        "Content-Type": "application/json",
+                      },
+                      withCredentials: true,
+                    }
+                  );
+                case 4:
+                  response = _context.sent;
+                  if (registerSuccess) {
+                    registerSuccess(response.data);
+                  } else {
+                    // Use Next.js router to redirect
+                    router$1.push(redirectPath);
+                  }
+                  _context.next = 12;
+                  break;
+                case 8:
+                  _context.prev = 8;
+                  _context.t0 = _context["catch"](1);
+                  if (
+                    !(
+                      _context.t0 !== null &&
+                      _context.t0 !== void 0 &&
+                      _context.t0.response
+                    )
+                  ) {
+                    setErrMsg("No Server Response");
+                  } else if (
+                    ((_err$response = _context.t0.response) === null ||
+                    _err$response === void 0
+                      ? void 0
+                      : _err$response.status) === 409
+                  ) {
+                    setErrMsg("Email Already Taken");
+                  } else {
+                    setErrMsg("Registration Failed");
+                  }
+                  if (errRef.current) {
+                    errRef.current.focus();
+                  }
+                case 12:
+                  _context.prev = 12;
+                  setRegistering(false);
+                  return _context.finish(12);
+                case 15:
+                case "end":
+                  return _context.stop();
+              }
+          },
+          _callee,
+          null,
+          [[1, 8, 12, 15]]
+        );
+      })
+    );
     return function submitData(_x) {
       return _ref2.apply(this, arguments);
     };
-  }();
-  return /*#__PURE__*/React__default.default.createElement("div", {
-    className: "bit bit-register"
-  }, errMsg && /*#__PURE__*/React__default.default.createElement("p", {
-    ref: errRef,
-    className: "error-message",
-    "aria-live": "assertive"
-  }, errMsg), /*#__PURE__*/React__default.default.createElement(FEUtils.DynamicForm, {
-    formData: formData,
-    submitData: submitData
-  }, registering ? /*#__PURE__*/React__default.default.createElement("button", {
-    disabled: true,
-    className: "btn btn-primary"
-  }, "Registering...") : children));
+  })();
+  return /*#__PURE__*/ React__default.default.createElement(
+    "div",
+    {
+      className: "bit bit-register",
+    },
+    errMsg &&
+      /*#__PURE__*/ React__default.default.createElement(
+        "p",
+        {
+          ref: errRef,
+          className: "error-message",
+          "aria-live": "assertive",
+        },
+        errMsg
+      ),
+    /*#__PURE__*/ React__default.default.createElement(
+      FEUtils.DynamicForm,
+      {
+        formData: formData,
+        submitData: submitData,
+      },
+      registering
+        ? /*#__PURE__*/ React__default.default.createElement(
+            "button",
+            {
+              disabled: true,
+              className: "btn btn-primary",
+            },
+            "Registering..."
+          )
+        : children
+    )
+  );
 };
 
 exports.GetAuth = GetAuth;
