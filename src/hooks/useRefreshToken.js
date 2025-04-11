@@ -1,16 +1,29 @@
 import { createAxiosInstance } from "../api/axios";
-import { useCookies } from "react-cookie";
+import { parseCookies, setCookie } from "nookies";
 
 const useRefreshToken = (apiUrl, refreshUrl) => {
-  const [cookies, setCookie] = useCookies(["bitUser"]);
-  const axiosInstance = createAxiosInstance(apiUrl);
+  const refresh = async (ctx = null) => {
+    const cookies = parseCookies(ctx);
+    let refresh_token = "";
 
-  const refresh = async () => {
-    const refresh_token = cookies?.bitUser?.refresh_token || "";
+    if (cookies.bitUser) {
+      try {
+        const userData = JSON.parse(cookies.bitUser);
+        refresh_token = userData.refresh_token || "";
+      } catch (error) {
+        console.error("Error parsing user cookie:", error);
+      }
+    }
+
+    if (!refresh_token) {
+      throw new Error("No refresh token available");
+    }
+
+    const axiosInstance = createAxiosInstance(apiUrl);
 
     try {
       const response = await axiosInstance.post(
-        `${apiUrl}/${refreshUrl}`,
+        refreshUrl,
         {
           refresh_token,
         },
@@ -18,6 +31,28 @@ const useRefreshToken = (apiUrl, refreshUrl) => {
           withCredentials: true,
         }
       );
+
+      // Update cookies - works on client-side
+      if (typeof window !== "undefined" && cookies.bitUser) {
+        try {
+          const userData = JSON.parse(cookies.bitUser);
+          setCookie(
+            null,
+            "bitUser",
+            JSON.stringify({
+              ...userData,
+              token: response.data.token,
+            }),
+            {
+              maxAge: 86400,
+              path: "/",
+            }
+          );
+        } catch (error) {
+          console.error("Error updating token in cookie:", error);
+        }
+      }
+
       return response.data;
     } catch (error) {
       console.error("Error refreshing token:", error);

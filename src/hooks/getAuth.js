@@ -1,9 +1,17 @@
-import React from "react";
-import { useCookies } from "react-cookie";
+import { parseCookies } from "nookies";
 
-const GetAuth = () => {
-  const [cookies] = useCookies(["bitUser"]);
-  const userCookies = cookies["bitUser"];
+const GetAuth = (ctx = null) => {
+  const cookies = parseCookies(ctx);
+  let userCookies = null;
+
+  if (cookies.bitUser) {
+    try {
+      userCookies = JSON.parse(cookies.bitUser);
+    } catch (error) {
+      console.error("Error parsing user cookie:", error);
+    }
+  }
+
   return userCookies;
 };
 

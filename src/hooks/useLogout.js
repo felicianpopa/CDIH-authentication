@@ -1,21 +1,36 @@
 import { createAxiosInstance } from "../api";
-import { useCookies } from "react-cookie";
+import { destroyCookie } from "nookies";
+import { useRouter } from "next/router";
 
-const useLogout = (apiUrl) => {
-  const [cookies, setCookie, removeCookie] = useCookies(["bitUser"]);
+const useLogout = (apiUrl, logoutUrl = null) => {
+  const router = useRouter();
   const axiosInstance = createAxiosInstance(apiUrl);
 
-  const logout = async () => {
-    removeCookie("bitUser", { path: "/" });
-    // return axiosInstance("/token/invalidate", {
-    //   withCredentials: true,
-    // })
-    //   .then((res) => {
-    //     removeCookie("bitUser",{path:'/'});
-    //   })
-    //   .catch((error) => {
-    //     throw error;
-    //   });
+  const logout = async (redirectPath = "/login") => {
+    // Remove cookies
+    destroyCookie(null, "bitUser", { path: "/" });
+    destroyCookie(null, "bitUserData", { path: "/" });
+
+    // Optional API call to invalidate token on server
+    if (logoutUrl) {
+      try {
+        await axiosInstance.post(
+          logoutUrl,
+          {},
+          {
+            withCredentials: true,
+          }
+        );
+      } catch (error) {
+        console.error("Error during logout:", error);
+        // Continue with client-side logout even if server request fails
+      }
+    }
+
+    // Redirect to login page
+    if (redirectPath) {
+      router.push(redirectPath);
+    }
   };
 
   return logout;

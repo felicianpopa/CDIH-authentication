@@ -1,11 +1,16 @@
 import React from "react";
+import dynamic from "next/dynamic";
 import "../style/style.scss";
-import "FE-utils/dist/style/style.scss";
-import { useRef, useState, useEffect } from "react";
-import { useCookies } from "react-cookie";
+import { useRef, useState } from "react";
+import { useRouter } from "next/router";
+import { setCookie } from "nookies";
 import { createAxiosInstance } from "../api/axios";
 import { useGetUserData } from "../hooks";
-import { DynamicForm } from "FE-utils";
+
+const DynamicForm = dynamic(
+  () => import("FE-utils").then((mod) => mod.DynamicForm),
+  { ssr: false }
+);
 
 import { UserAuthMapper } from "../data/userAuthMapper";
 
@@ -16,15 +21,14 @@ const Login = ({
   apiUrl,
   loginUrl,
   getUserDataUrl,
+  redirectPath = "/dashboard",
 }) => {
-  const [cookies, setCookie] = useCookies(["bitUser", "bitUserData"]);
-  const fetchUserData = useGetUserData(apiUrl, getUserDataUrl);
-
+  const router = useRouter();
+  const { fetchUserDataWithAuth } = useGetUserData(apiUrl, getUserDataUrl);
   const axiosInstance = createAxiosInstance(apiUrl);
 
   const errRef = useRef();
   const [loginLoading, setLoginLoading] = useState(false);
-
   const [errMsg, setErrMsg] = useState("");
 
   const handleSubmit = async (formData) => {
@@ -39,29 +43,50 @@ const Login = ({
           withCredentials: true,
         }
       );
+
       const authData = UserAuthMapper.map(response.data);
-      setCookie("bitUser", { ...authData }, { path: "/", maxAge: cookiesAge });
-      const userData = await fetchUserData(authData.token);
-      setCookie(
-        "bitUserData",
-        { ...userData },
-        { path: "/", maxAge: cookiesAge }
-      );
+
+      // Set cookies using nookies
+      setCookie(null, "bitUser", JSON.stringify({ ...authData }), {
+        path: "/",
+        maxAge: cookiesAge,
+        secure: process.env.NODE_ENV === "production",
+        sameSite: "lax",
+      });
+
+      // Fetch user data
+      const userData = await fetchUserDataWithAuth(authData.token);
+
+      setCookie(null, "bitUserData", JSON.stringify({ ...userData }), {
+        path: "/",
+        maxAge: cookiesAge,
+        secure: process.env.NODE_ENV === "production",
+        sameSite: "lax",
+      });
+
+      // Handle successful login
       if (loginSuccess) {
         loginSuccess(authData);
+      } else {
+        // Use Next.js router to redirect
+        const returnUrl = router.query.returnUrl || redirectPath;
+        router.push(returnUrl);
       }
     } catch (err) {
-      console.error("error ", err);
+      console.error("Login error:", err);
       if (!err?.response) {
         setErrMsg("No server response");
       } else if (err.response?.status === 400) {
         setErrMsg("Missing Email or Password");
-      } else if (err.response?.status === 4001) {
+      } else if (err.response?.status === 401) {
         setErrMsg("Unauthorized");
       } else {
         setErrMsg("Login failed");
       }
-      errRef.current.focus();
+
+      if (errRef.current) {
+        errRef.current.focus();
+      }
     } finally {
       setLoginLoading(false);
     }
@@ -82,7 +107,7 @@ const Login = ({
               required: "This input is required",
               pattern: {
                 value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                message: "Please inert a valid email",
+                message: "Please insert a valid email",
               },
             },
             initialValue: "",
@@ -113,6 +138,11 @@ const Login = ({
     <>
       <div className="bit bit-login">
         {children}
+        {errMsg && (
+          <p ref={errRef} className="error-message" aria-live="assertive">
+            {errMsg}
+          </p>
+        )}
         <DynamicForm formData={loginFormData} submitData={handleSubmit}>
           <>
             <a href="#" className="forgot-password">
