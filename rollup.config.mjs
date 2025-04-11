@@ -116,6 +116,8 @@ const config = {
     ...Object.keys(pkg.peerDependencies || {}),
     ...dateFnsSubpackages,
     "classnames", // Mark classnames as external
+    "nookies",
+    "next/router",
   ],
 };
 
