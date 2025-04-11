@@ -1,5 +1,5 @@
 /*!
-  web-authentication v1.0.13
+  web-authentication v1.0.14
   undefined
   Released under the undefined License.
 */

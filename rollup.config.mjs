@@ -118,6 +118,9 @@ const config = {
     "classnames", // Mark classnames as external
     "nookies",
     "next/router",
+    "./loadable.shared-runtime", // Add the loadable shared runtime path
+    "next/dist/shared/lib/loadable.shared-runtime", // Also add the full path version
+    "next/dist/shared/lib/loadable", // Add parent path as well
   ],
 };
 
